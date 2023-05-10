@@ -1,0 +1,81 @@
+** Housekeeping 
+clear all 
+if c(username)=="moritzdrupp" {
+	cd "/Users/moritzdrupp/Dropbox/Discounting_Survey/Philosophers_paper/NCC_final/Replication package"
+}
+
+if c(username)=="frikk" {
+	cd "C:\Users\cnx664\Dropbox\Discounting_Survey\Philosophers_paper\NCC_final\Replication package"
+}
+
+use "Survey_data.dta" 
+
+** Tab 1
+tab ramsey Econ
+tab codelta Econ
+tab coeta Econ
+tab cogrowth Econ
+tab conormative Econ
+
+** Tab S2
+tab substitutability Econ
+tab uncertainty Econ
+tab ddrs Econ
+tab heterogeneity Econ
+tab coopportunity Econ
+tab coalternatives Econ
+
+** Tab SI1
+* Economists
+drop if Econ==0
+* g
+sum growthpc, det
+* delta	
+sum puretp, det
+* eta	
+sum eta, det
+* r	
+sum realrfr, det
+* normative weight	
+sum normative, det
+* SDR	
+sum SDR, det
+* SDRmin	
+sum SDRmin, det
+* SDRmax
+sum SDRmax, det
+* Quantitaitve
+tab Quantitaitve
+* Qualitative
+tab comment
+* Total
+sum Econ
+
+** Load data
+clear all
+use "Survey_data.dta" 
+
+* Philosophers 
+drop if Econ==1
+* g
+sum growthpc, det
+* delta	
+sum puretp, det
+* eta	
+sum eta, det
+* r	
+sum realrfr, det
+* normative weight	
+sum normative, det
+* SDR	
+sum SDR, det
+* SDRmin	
+sum SDRmin, det
+* SDRmax
+sum SDRmax, det
+* Quantitaitve
+tab Quantitaitve
+* Qualitative
+tab comment
+* Total (=0)
+sum Econ
